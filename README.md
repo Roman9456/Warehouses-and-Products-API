@@ -1,4 +1,76 @@
-# Склады и товары
+# Warehouses-and-Products-API
+# Overview
+This project implements a REST API using Django Rest Framework (DRF) for managing products and warehouses. The API supports full CRUD operations (Create, Read, Update, Delete) for both products and warehouses, and includes search functionality and pagination.
+
+# Description
+The company manages various products stored in multiple warehouses. Each product is defined by its name and an optional description. Warehouses store these products and maintain specific storage costs for each product. Since a product may be stored in multiple warehouses, the storage cost can vary from warehouse to warehouse.
+
+# Key Features
+CRUD Operations:
+
+Products: Create, retrieve, update, and delete product records.
+Warehouses: Create, retrieve, update, and delete warehouse records.
+Product-Warehouse Relationship:
+
+Manage the association between products and warehouses, including specific storage costs.
+Search Functionality:
+
+Products: Search by name or description.
+Warehouses: Search by the products they store, using either product ID or keywords in the product name/description.
+Pagination: Implemented for product and warehouse lists to handle large datasets efficiently.
+
+API Endpoints
+Product Endpoints
+Create Product: POST /products/
+
+Request Body:
+{
+  "name": "Tomato",
+  "description": "Fresh organic tomatoes"
+}
+Update Product: PATCH /products/{id}/
+
+Request Body:
+{
+  "name": "Tomato",
+  "description": "Updated description"
+}
+List Products: GET /products/
+
+Response: A paginated list of products.
+Retrieve Product: GET /products/{id}/
+
+Response: Details of a single product by ID.
+Delete Product: DELETE /products/{id}/
+
+Warehouse Endpoints
+Create Warehouse: POST /warehouses/
+
+Request Body:
+{
+  "name": "Main Warehouse"
+}
+Update Warehouse: PATCH /warehouses/{id}/
+
+Request Body:
+{
+  "name": "Main Warehouse"
+}
+List Warehouses: GET /warehouses/
+
+Response: A paginated list of warehouses.
+Retrieve Warehouse: GET /warehouses/{id}/
+
+Response: Details of a single warehouse by ID, including stored products and their storage costs.
+Delete Warehouse: DELETE /warehouses/{id}/
+
+Search Endpoints
+Search Products: GET /products/?search={keyword}
+
+Example: GET /products/?search=Tomato
+Search Warehouses by Product: GET /warehouses/?search={keyword}
+
+Example: GET /warehouses/?search=Tomato# Склады и товары
 
 ## Техническая задача: реализовать CRUD-логику для продуктов и складов, используя Django Rest Framework.
 
